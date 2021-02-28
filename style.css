@@ -2,7 +2,7 @@ h1 {
     text-align: center;
     padding-top: 50px;
     width: 100%;
-    height: 70px;
+    height: 50px;
     background-color: navy;
     color:oldlace;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -13,11 +13,59 @@ text-align: center;
 font-size: 150%;
 
 }
+
 .qAndA{
     display: block;
     border: solid;
     border-width: 5px;
     border-color: navy;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.scoreBoard {
+    
+text-align: center;
+font-size: 150%;
+
+}
+.scoreDisplay{
+    
+    border: solid;
+    border-width: 5px;
+    border-color: navy;
+    padding-top: 3px;
+    padding-bottom: 3px; 
+}
+.ansRight{
+    display:inline-block;
+    text-align: center;
     padding-top: 50px;
-    padding-bottom: 50px;
+    width: 32%;
+    height: 70px;
+    background-color: navy;
+    color:oldlace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+}
+.ansWrong{
+    display:inline-block;
+    text-align: center;
+    padding-top: 50px;
+    width: 32%;
+    height: 70px;
+    background-color:oldlace;
+    color: navy;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+}
+.testTimer{
+    display:inline-block;
+    text-align: center;
+    padding-top: 50px;
+    width: 32%;
+    height: 70px;
+    background-color: navy;
+    color:oldlace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
 }

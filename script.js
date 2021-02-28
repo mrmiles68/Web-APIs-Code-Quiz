@@ -1,8 +1,11 @@
 
 // var iter = question.length;
 var prevNum = []
-var whichAns = [-1, -1, -1, -1]
+var whichAns = [0, 0, 0, 0]
 var chosen = [-1, -1, -1, -1]
+var countDown = 0
+var numRight = 0
+var numWrong = 0
 var question = [
     {
         text: "What is JSON?",
@@ -115,10 +118,14 @@ var question = [
 ]
 document.getElementById("startButton").addEventListener("click", displayAnswer());
 
-// for (k = 0; k < iter; k++) {
-//     prevNum[k] = -1;
-//     console.log(prevNum[k]);
-// }
+function getItRight() {
+    console.log("hello world")
+    if (question[whichQuest].answers[whichAns[0]].correct) {
+        numRight++
+
+    } else { numWrong++ }
+}
+
 function displayAnswer() {
     for (i = 0; i < 5; i++) {
         whichQuest = Math.floor(Math.random() * 5);
@@ -131,6 +138,7 @@ function displayAnswer() {
         // console.log(whichAns[2] + " was selected answer")
         // console.log(whichAns[3] + " was selected answer")
         // console.log(whichAns[4] + " was selected answer")
+
         for (j = 0; j < 4; j++) {
             const randomNumber = function () {
                 const ranNum = Math.floor(Math.random() * 4)
@@ -168,14 +176,20 @@ function displayAnswer() {
 
         console.log(whichAns[j])
         console.log(whichAns[j] + " was selected answer")
-
     }
+
     document.getElementById("askQuestion").innerHTML = "" + question[whichQuest].text;
     document.getElementById("button1").innerHTML = "" + question[whichQuest].answers[whichAns[0]].text;
     document.getElementById("button2").innerHTML = "" + question[whichQuest].answers[whichAns[1]].text;
     document.getElementById("button3").innerHTML = "" + question[whichQuest].answers[whichAns[2]].text;
     document.getElementById("button4").innerHTML = "" + question[whichQuest].answers[whichAns[3]].text;
-
+    document.getElementById("button1").addEventListener("click", getItRight());
+    document.getElementById("button2").addEventListener("click", getItRight());
+    document.getElementById("button3").addEventListener("click", getItRight());
+    document.getElementById("button4").addEventListener("click", getItRight());
+    document.getElementById("ansRight").innerHTML = "Correct: " + numRight;
+    document.getElementById("ansWrong").innerHTML = "Wrong: " + numWrong;
+    document.getElementById("timer").innerHTML = "Timer: " + countDown;
 }
 
 
