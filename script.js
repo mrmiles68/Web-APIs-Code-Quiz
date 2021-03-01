@@ -2,7 +2,7 @@
 var prevNum = []
 var whichAns = [0, 0, 0, 0]
 var chosen = [-1, -1, -1, -1]
-var countDown = 0
+var countDown = 60
 var numRight = 0
 var numWrong = 0
 var question = [
@@ -132,6 +132,8 @@ var question = [
 //     }
 // }
 
+
+
 const randomNumber = function () {
     for (j = 0; j < 4; j++) {
         const ranNum = Math.floor(Math.random() * 4)
@@ -177,6 +179,18 @@ function displayAnswer() {
     document.getElementById("button4").addEventListener("click", getItRight());
     document.getElementById("ansRight").innerHTML = "Correct: " + numRight;
     document.getElementById("ansWrong").innerHTML = "Wrong: " + numWrong;
-    document.getElementById("timer").innerHTML = "Timer: " + countDown;
+    // document.getElementById("timer").innerHTML = "Timer: " + countDown;
+    var countDown = setInterval(function () {
+
+        if (countDown <= 0) {
+            clearInterval(countDown);
+            numWrong++;
+            return displayAnswer()
+
+        }
+        document.getElementById("testTimer").innerHTML = "Time Remaining: " + (countDown + 60);
+        countDown -= 1;
+        console.log(countDown)
+    }, 1000);
 }
 document.getElementById("startButton").addEventListener("click", displayAnswer());

@@ -36,7 +36,7 @@ font-size: 150%;
     padding-top: 3px;
     padding-bottom: 3px; 
 }
-.ansRight{
+#ansRight{
     display:inline-block;
     text-align: center;
     padding-top: 50px;
@@ -47,7 +47,7 @@ font-size: 150%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
 }
-.ansWrong{
+#ansWrong{
     display:inline-block;
     text-align: center;
     padding-top: 50px;
@@ -58,7 +58,7 @@ font-size: 150%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
 }
-.testTimer{
+#testTimer{
     display:inline-block;
     text-align: center;
     padding-top: 50px;
