@@ -1,5 +1,4 @@
-
-// var iter = question.length;
+// Define variables
 var prevNum = []
 var whichAns = [0, 0, 0, 0]
 var chosen = [-1, -1, -1, -1]
@@ -116,8 +115,29 @@ var question = [
         ]
     }
 ]
-document.getElementById("startButton").addEventListener("click", displayAnswer());
+// Define functions
+// const randomNumber = function () {
 
+//     for (j = 0; j < 4; j++) {
+//         const ranNum = Math.floor(Math.random() * 4)
+//         console.log("iteration " + j)
+//         console.log("choice " + ranNum)
+//         if (whichAns[j].includes(ranNum)) {
+//             return randomNumber();
+//         } else {
+//             whichAns[j].push(ranNum)
+//             return randomNumber();
+//             // double check that above line isn't actually randomNumber()
+//         }
+//     }
+// }
+
+const randomNumber = function () {
+    for (j = 0; j < 4; j++) {
+        const ranNum = Math.floor(Math.random() * 4)
+        whichAns[j] = ranNum
+    }
+}
 function getItRight() {
     console.log("hello world")
     if (question[whichQuest].answers[whichAns[0]].correct) {
@@ -125,54 +145,22 @@ function getItRight() {
 
     } else { numWrong++ }
 }
-
 function displayAnswer() {
     for (i = 0; i < 5; i++) {
         whichQuest = Math.floor(Math.random() * 5);
         console.log(whichQuest + " was selected");
-        // const whichAns = [-1,-1,-1,-1];
+        randomNumber();
 
-        // prevNum[i] = whichQuest;
-        // Array.whichAns.apply(null, Array(5)).map(function () { return Math.floor(Math.random() * 4 % 4); })
-        // console.log(whichAns[1] + " was selected answer")
-        // console.log(whichAns[2] + " was selected answer")
-        // console.log(whichAns[3] + " was selected answer")
-        // console.log(whichAns[4] + " was selected answer")
+        {
 
-        for (j = 0; j < 4; j++) {
-            const randomNumber = function () {
-                const ranNum = Math.floor(Math.random() * 4)
-                console.log("iteration " + j)
-                console.log("choice " + ranNum)
-                if (whichAns[j].includes(ranNum)) {
-                    return randomNumber();
-                } else {
-                    whichAns[j].push(ranNum)
-                    return randomNumber();
-                    // double check that above line isn't actually randomNumber()
-                }
-            }
 
-            console.log("first random is:" + whichAns[1])
+            console.log("first random is:" + whichAns[0])
+            console.log(" next random is:" + whichAns[1])
             console.log(" next random is:" + whichAns[2])
             console.log(" next random is:" + whichAns[3])
-            console.log(" next random is:" + whichAns[4])
-            // which = Math.floor(Math.random() * 4);
-            // whichAns[j] = which;
+
         }
 
-        // if (whichAns[j] > 0 && whichAns[j] != chosen[0]
-        //     && whichAns[j] != chosen[1] && whichAns[j] != chosen[2]
-        //     && whichAns[j] != chosen[3]) {
-        //     chosen[j] = which
-        //     // console.log(chosen[j])
-        //     // console.log(WhichAns[j])
-        // } else {
-        //     j--
-        // }
-
-        // while { len(set(str(val))) != 1
-        // whichAns[j] = random.randint(0, 3)
 
         console.log(whichAns[j])
         console.log(whichAns[j] + " was selected answer")
@@ -191,10 +179,4 @@ function displayAnswer() {
     document.getElementById("ansWrong").innerHTML = "Wrong: " + numWrong;
     document.getElementById("timer").innerHTML = "Timer: " + countDown;
 }
-
-
-
-
-
-console.log("is this correct? " + question[0].answers[1].correct)
-// whichQuest = Math.floor(Math.random() * 4)
+document.getElementById("startButton").addEventListener("click", displayAnswer());

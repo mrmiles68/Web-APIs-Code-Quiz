@@ -19,8 +19,8 @@ font-size: 150%;
     border: solid;
     border-width: 5px;
     border-color: navy;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 .scoreBoard {
     
@@ -68,4 +68,10 @@ font-size: 150%;
     color:oldlace;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
+}
+button {
+
+    color:oldlace;
+    background-color: navy;
+    font-size: 100%;
 }
