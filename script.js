@@ -137,35 +137,43 @@ var question = [
 const randomNumber = function () {
     for (j = 0; j < 4; j++) {
         const ranNum = Math.floor(Math.random() * 4)
+
         whichAns[j] = ranNum
     }
 }
 function getItRight() {
     console.log("hello world")
-    if (question[whichQuest].answers[whichAns[0]].correct) {
-        numRight++
-
-    } else { numWrong++ }
+    if (question[whichQuest].answers[whichAns[0]].correct && button1 || question[whichQuest].answers[whichAns[1]].correct && button2
+        || question[whichQuest].answers[whichAns[2]].correct && button3 || question[whichQuest].answers[whichAns[3]].correct && button4) {
+        numRight++;
+        document.getElementById("ansRight").style.backgroundColor = "green"
+        // setTimeout({}, 500);
+        displayAnswer()
+        console.log("right")
+    } else {
+        numWrong++;
+        document.getElementById("ansWrong").style.backgroundColor = "red"
+        // setTimeout({}, 500);
+        displayAnswer()
+        console.log("wrong")
+    }
 }
 function displayAnswer() {
+    document.getElementById("ansRight").style.backgroundColor = "navy"
+    document.getElementById("ansWrong").style.backgroundColor = "oldlace"
     for (i = 0; i < 5; i++) {
         whichQuest = Math.floor(Math.random() * 5);
-        console.log(whichQuest + " was selected");
         randomNumber();
 
         {
 
 
-            console.log("first random is:" + whichAns[0])
-            console.log(" next random is:" + whichAns[1])
-            console.log(" next random is:" + whichAns[2])
-            console.log(" next random is:" + whichAns[3])
+
 
         }
 
 
-        console.log(whichAns[j])
-        console.log(whichAns[j] + " was selected answer")
+
     }
 
     document.getElementById("askQuestion").innerHTML = "" + question[whichQuest].text;
@@ -173,10 +181,12 @@ function displayAnswer() {
     document.getElementById("button2").innerHTML = "" + question[whichQuest].answers[whichAns[1]].text;
     document.getElementById("button3").innerHTML = "" + question[whichQuest].answers[whichAns[2]].text;
     document.getElementById("button4").innerHTML = "" + question[whichQuest].answers[whichAns[3]].text;
-    document.getElementById("button1").addEventListener("click", getItRight());
-    document.getElementById("button2").addEventListener("click", getItRight());
-    document.getElementById("button3").addEventListener("click", getItRight());
-    document.getElementById("button4").addEventListener("click", getItRight());
+    document.getElementById("button1").addEventListener("click", getItRight);
+    document.getElementById("button2").addEventListener("click", getItRight);
+    document.getElementById("button3").addEventListener("click", getItRight);
+    document.getElementById("button4").addEventListener("click", getItRight);
+
+
     document.getElementById("ansRight").innerHTML = "Correct: " + numRight;
     document.getElementById("ansWrong").innerHTML = "Wrong: " + numWrong;
     // document.getElementById("timer").innerHTML = "Timer: " + countDown;
@@ -185,12 +195,13 @@ function displayAnswer() {
         if (countDown <= 0) {
             clearInterval(countDown);
             numWrong++;
-            return displayAnswer()
+            // return displayAnswer()
 
         }
-        document.getElementById("testTimer").innerHTML = "Time Remaining: " + (countDown + 60);
+        document.getElementById("testTimer").innerHTML = "Time: " + (countDown + 59);
         countDown -= 1;
-        console.log(countDown)
+
     }, 1000);
 }
-document.getElementById("startButton").addEventListener("click", displayAnswer());
+// document.getElementById("startButton").addEventListener("click", displayAnswer());
+document.getElementById("startButton").addEventListener("click", displayAnswer);

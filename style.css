@@ -8,10 +8,15 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: x-large;
 }
+#startButton {
+    color:oldlace;
+    
+    }
+
 .gameBox {
 text-align: center;
 font-size: 150%;
-
+background-color: oldlace;
 }
 
 .qAndA{
@@ -21,6 +26,10 @@ font-size: 150%;
     border-color: navy;
     padding-top: 25px;
     padding-bottom: 25px;
+}
+#askQuestion {
+    color:navy;
+    font-weight: bold;
 }
 .scoreBoard {
     
